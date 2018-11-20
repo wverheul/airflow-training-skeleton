@@ -5,6 +5,7 @@ from airflow.operators.bash_operator import BashOperator
 from airflow.operators.python_operator import PythonOperator
 from airflow.operators.python_operator import BranchPythonOperator
 from airflow.operators.email_operator import EmailOperator
+from airflow.utils.trigger_rule import TriggerRule
 import datetime
 
 args = {
