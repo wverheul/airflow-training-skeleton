@@ -21,3 +21,5 @@ with DAG(
         provide_context=True,
         dag=dag
     )
+
+psql_to_gcs
