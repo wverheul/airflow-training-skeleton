@@ -40,11 +40,11 @@ with DAG(
         dag=dag)
     branching = BranchPythonOperator(
         task_id="branching",
-        python_callable=lambda: 1,
+        python_callable=_get_weekday,
         provide_context=True,
         dag=dag)
     emails = [DummyOperator(
-        task_id=f"{i}",
+        task_id=i,
         dag=dag)
         for i in weekday_mail
     ]
