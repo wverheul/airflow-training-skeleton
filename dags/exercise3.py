@@ -24,10 +24,10 @@ weekday_mail = {
 }
 
 def print_weekday(execution_date, **context):
-    print(execution_date.day_of_week)
+    print(execution_date.strftime("%a"))
 
 def _get_weekday(execution_date, **context):
-    return execution_date.day_of_week
+    return execution_date.strftime("%a")
 
 with DAG(
     dag_id="exercise3",
