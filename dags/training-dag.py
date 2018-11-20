@@ -15,7 +15,7 @@ with DAG(
         "start_date": airflow.utils.dates.days_ago(3),
     },
 ) as dag:
-    t1 = PythonOperator(task_id='print_execution_date', python_callable=print_execution_date(), dag=dag)
+    t1 = PythonOperator(task_id='print_execution_date', python_callable=print_execution_date, dag=dag)
     t2 = BashOperator(task_id='wait_5', comman='sleep 5')
     t3 = BashOperator(task_id='wait_1', comman='sleep 1')
     t4 = BashOperator(task_id='wait_10', comman='sleep 10')
