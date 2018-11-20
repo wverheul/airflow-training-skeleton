@@ -34,7 +34,7 @@ with DAG(
 ) as dag:
     print_weekday = PythonOperator(task_id="print_weekday", python_callable=print_weekday, provide_context=True, dag=dag)
     branching = BranchPythonOperator(task_id="branching", python_callable=_get_weekday, provide_context=True, dag=dag)
-    emails = [DummyOperator(task_id=f"email_{v}", dag=dag) for k, v in weekday_mail]
+    emails = [DummyOperator(task_id=f"email_{i}", dag=dag) for i in weekday_mail]
     final_task = DummyOperator(task_id="final_task", trigger_rule="one_succes", dag=dag)
 
 print_weekday >> branching >> emails >> final_task
