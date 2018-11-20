@@ -16,7 +16,7 @@ with DAG(
         task_id="psql_to_gcs",
         sql="SELECT * FROM land_registry_price_paid_uk WHERE transfer_date = '{{ ds }}",
         bucket="europe-west1-training-airfl-f9775318-bucket",
-        filename="/wverheul/{}-psql-to-gcs.json".format(execution_date.strftime("%Y%m%d")),
+        filename="/wverheul/{{ ds }}-psql-to-gcs.json",
         postgres_conn_id="psql_training",
         provide_context=True,
         dag=dag
