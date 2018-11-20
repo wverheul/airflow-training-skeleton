@@ -9,7 +9,7 @@ def print_execution_date(execution_date, **context):
     print(execution_date)
 
 with DAG(
-    dag_id="airflow-training",
+    dag_id="exercise2",
     default_args={
         "owner": "wverheul",
         "start_date": airflow.utils.dates.days_ago(3),
