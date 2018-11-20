@@ -24,10 +24,10 @@ weekday_mail = {
 }
 
 def print_weekday(execution_date, **context):
-    print(int(execution_date.strftime("%u"))-1)
+    print(execution_date.strftime("%u"))
 
 def _get_weekday(execution_date, **context):
-    return int(execution_date.strftime("%u"))-1
+    return execution_date.strftime("%u")
 
 with DAG(
     dag_id="exercise3",
@@ -44,7 +44,7 @@ with DAG(
         provide_context=True,
         dag=dag)
     emails = [DummyOperator(
-        task_id=i,
+        task_id=str(i),
         dag=dag)
         for i in weekday_mail
     ]
